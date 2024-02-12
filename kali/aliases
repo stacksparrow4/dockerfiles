@@ -1,2 +1,2 @@
-alias pwnbox='docker run --rm -it --hostname pwnbox sprrw bash'
-alias pwnboxshare='docker run -v $(pwd):/pwd --rm -it --hostname pwnbox sprrw bash'
+alias pwnbox='docker run --rm -it --hostname pwnbox pwnbox bash'
+alias pwnboxshare='docker run -v $(pwd):/pwd --rm -it --hostname pwnbox pwnbox bash'

@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker build -t sprrw .
+docker build -t pwnbox .
