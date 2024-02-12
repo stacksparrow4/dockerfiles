@@ -5,6 +5,16 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y file net
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y ncat ffuf gobuster golang subfinder
 RUN wget -O /usr/bin/jwt_tool https://github.com/ticarpi/jwt_tool/raw/master/jwt_tool.py && chmod +x /usr/bin/jwt_tool && python3 -m pip install termcolor cprint pycryptodomex requests
 
+# puredns
+WORKDIR /root
+RUN git clone https://github.com/blechschmidt/massdns.git && \
+	cd massdns && \
+	make && \
+	make install
+RUN go install github.com/d3mondev/puredns/v2@latest
+
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y dnsutils
+
 ENV PATH="${PATH}:~/go/bin"
 ENV LC_CTYPE=C.UTF-8
 ENV SHELL=/bin/bash
